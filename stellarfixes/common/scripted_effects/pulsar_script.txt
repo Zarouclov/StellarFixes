@@ -1,0 +1,15 @@
+give_pulsar_mod = {
+	if ={
+		limit = {
+			OR = {
+				is_star_class = sc_binary_1/$SYSCLASS$
+				is_star_class = sc_pulsar/$SYSCLASS$
+			}
+		}
+
+		add_modifier = {
+			modifier = pulsar_mod
+		}
+
+	}
+}

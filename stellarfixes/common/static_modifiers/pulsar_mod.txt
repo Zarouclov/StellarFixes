@@ -1,0 +1,3 @@
+pulsar_mod = {
+	ship_armor_mult = 2
+}
