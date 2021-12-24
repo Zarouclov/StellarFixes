@@ -1,0 +1,17 @@
+namespace = pulsarstation
+
+give_pulsar_option = {
+	id = pulsarstation.1
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			OR = {
+				is_star_class = sc_pulsar
+				is_star_class = sc_binary_1
+			}
+		}
+	}
+	immediate = {
+		
+	}
+}
