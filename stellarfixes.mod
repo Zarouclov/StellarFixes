@@ -1,7 +1,10 @@
-version="0.1"
+version="0.3"
 tags={
-	"misc"
+	"Balance"
+	"Gameplay"
+	"Fixes"
+	"Utilities"
 }
 name="StellarFixes"
-supported_version="3.*.*"
-path="%USERPROFILE%\Documents\Paradox Interactive\Stellaris\mod\stellarfixes"
+supported_version="3.2.2"
+path="C:/Users/Aymeric/Documents/Paradox Interactive/Stellaris/mod/StellarFixes"
