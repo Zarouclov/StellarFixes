@@ -1,17 +1,23 @@
 namespace = pulsarstation
 
-give_pulsar_option = {
+give_pulsar_mod = {
 	id = pulsarstation.1
+	hide_window = yes
 	is_triggered_only = yes
 	trigger = {
-		fromfrom = {
-			OR = {
+		FROM = {
+			solar_system = {
+				OR = {
 				is_star_class = sc_pulsar
 				is_star_class = sc_binary_1
+				}
 			}
+			
 		}
 	}
 	immediate = {
-		
+		add_modifier = {
+			modifier = pulsar_mod
+		}
 	}
 }
