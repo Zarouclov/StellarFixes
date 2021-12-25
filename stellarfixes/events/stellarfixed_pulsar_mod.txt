@@ -1,26 +1,30 @@
 namespace = pulsarstation
 
-ship_event = {
+fleet_event = {
 	id = pulsarstation.1
 	hide_window = yes
 	is_triggered_only = yes
+	
 	trigger = {
-		is_scope_type = starbase
 		solar_system = {
 			OR = {
 			is_star_class = sc_pulsar
 			is_star_class = sc_binary_1
 			}
 		}
-		NOT = { 
-			has_modifier = pulsar_mod
-		}
 
 	}
 	immediate = {
-		add_modifier = {
+		if = {
+			limit = {
+				OR = {
+					is_ship_class = shipclass_starbase
+					is_ship_class = shipclass_military_station	
+				}
+			}
+			add_modifier = {
 			modifier = pulsar_mod
 			}
-		
 		}
+	}
 }
