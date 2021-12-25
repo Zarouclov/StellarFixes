@@ -1,4 +1,4 @@
-on_building_starbase_outpost = {
+on_monthly_pulse = {
 	events = {
 		pulsarstation.1
 	}
