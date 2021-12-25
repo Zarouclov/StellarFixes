@@ -12,19 +12,14 @@ fleet_event = {
 			is_star_class = sc_binary_1
 			}
 		}
-
+		OR = {
+			is_ship_class = shipclass_starbase
+			is_ship_class = shipclass_military_station	
+			}
 	}
 	immediate = {
-		if = {
-			limit = {
-				OR = {
-					is_ship_class = shipclass_starbase
-					is_ship_class = shipclass_military_station	
-				}
-			}
-			add_modifier = {
+		add_modifier = {
 			modifier = pulsar_mod
-			}
 		}
 	}
 }
