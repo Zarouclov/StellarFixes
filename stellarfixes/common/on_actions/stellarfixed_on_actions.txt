@@ -1,4 +1,4 @@
-on_ship_enabled = {
+on_monthly_pulse = {
 	events = {
 		pulsarstation.1
 	}

@@ -1,23 +1,46 @@
 namespace = pulsarstation
 
-fleet_event = {
+event = {
 	id = pulsarstation.1
 	hide_window = yes
 	is_triggered_only = yes
-	
 	trigger = {
-		solar_system = {
-			OR = {
-			is_star_class = sc_pulsar
-			is_star_class = sc_binary_1
+		any_playable_country = {
+			any_owned_ship = {
+				is_ship_class = shipclass_starbase
+				solar_system = {
+					OR = {
+						is_star_class = sc_pulsar
+						is_star_class = sc_binary_1
+						}
+				}
+				NOT = {
+					has_modifier = pulsar_mod
+				}
 			}
 		}
-		is_ship_class = shipclass_starbase
-		
 	}
 	immediate = {
-		add_modifier = {
-			modifier = pulsar_mod
+		every_system = {
+			limit = {
+				solar_system = {
+					OR = {
+						is_star_class = sc_pulsar
+						is_star_class = sc_binary_1
+						}
+				}
+			}
+			every_ship_in_system = {
+				limit = {
+					is_ship_class = shipclass_starbase
+					NOT = {
+						has_modifier = pulsar_mod
+					}
+				}
+				add_modifier = {
+					modifier = pulsar_mod
+				}
+			}
 		}
 	}
 }
