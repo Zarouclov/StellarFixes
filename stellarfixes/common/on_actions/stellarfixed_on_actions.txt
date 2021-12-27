@@ -1,5 +1,5 @@
 on_monthly_pulse = {
 	events = {
-		pulsarstation.1
+		stellarfixed.1
 	}
 }

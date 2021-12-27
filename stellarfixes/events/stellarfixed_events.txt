@@ -1,21 +1,14 @@
-namespace = pulsarstation
-
+namespace = stellarfixed
+### event checking for any station owned in a pulsar system and giving their station an armor modifier
 event = {
-	id = pulsarstation.1
+	id = stellarfixed.1
 	hide_window = yes
 	is_triggered_only = yes
 	trigger = {
 		any_playable_country = {
-			any_owned_ship = {
-				is_ship_class = shipclass_starbase
+			any_owned_starbase = {
 				solar_system = {
-					OR = {
-						is_star_class = sc_pulsar
-						is_star_class = sc_binary_1
-						}
-				}
-				NOT = {
-					has_modifier = pulsar_mod
+					has_modifier = pulsar_sys
 				}
 			}
 		}
@@ -24,22 +17,18 @@ event = {
 		every_system = {
 			limit = {
 				solar_system = {
-					OR = {
-						is_star_class = sc_pulsar
-						is_star_class = sc_binary_1
-						}
+					has_modifier = pulsar_sys
 				}
+				exists = starbase
 			}
 			every_ship_in_system = {
 				limit = {
 					is_ship_class = shipclass_starbase
-					NOT = {
-						has_modifier = pulsar_mod
-					}
 				}
 				add_modifier = {
 					modifier = pulsar_mod
 				}
+				remove_modifier = pulsar_sys
 			}
 		}
 	}
