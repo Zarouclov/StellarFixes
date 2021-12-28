@@ -39,6 +39,7 @@ event = {
 				has_modifier = pulsar_sys
 				exists = starbase
 			}
+			remove_modifier = pulsar_sys
 			every_ship_in_system = {
 				limit = {
 					is_ship_class = shipclass_starbase
@@ -46,7 +47,7 @@ event = {
 				add_modifier = {
 					modifier = pulsar_mod
 				}
-				remove_modifier = pulsar_sys
+				
 			}
 		}
 	}
