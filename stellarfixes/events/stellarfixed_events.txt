@@ -1,7 +1,27 @@
 namespace = stellarfixed
-### event checking for any station owned in a pulsar system and giving their station an armor modifier
+
 event = {
 	id = stellarfixed.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_system = {
+			limit = {
+				OR = {
+					is_star_class = sc_binary_1
+					is_star_class = sc_pulsar
+				}
+			}
+			add_modifier = {
+				modifier = pulsar_sys
+			}
+		}
+	}
+}
+
+### event checking for any station owned in a pulsar system and giving their station an armor modifier
+event = {
+	id = stellarfixed.2
 	hide_window = yes
 	is_triggered_only = yes
 	trigger = {

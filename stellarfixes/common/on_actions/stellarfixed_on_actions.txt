@@ -1,5 +1,11 @@
-on_monthly_pulse = {
+on_game_start = {
 	events = {
 		stellarfixed.1
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		stellarfixed.2
 	}
 }
