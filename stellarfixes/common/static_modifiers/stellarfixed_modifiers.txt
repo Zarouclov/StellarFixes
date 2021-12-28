@@ -3,4 +3,5 @@ pulsar_mod = {
 }
 
 pulsar_sys = {
+	ship_shield_add = 1
 }
