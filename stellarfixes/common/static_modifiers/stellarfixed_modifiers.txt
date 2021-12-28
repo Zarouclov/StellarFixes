@@ -1,3 +1,4 @@
+### static_modifiers used to fix pulsar stations
 pulsar_mod = {
 	ship_armor_mult = 1
 }

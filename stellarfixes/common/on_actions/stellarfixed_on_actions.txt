@@ -1,3 +1,4 @@
+### getting the pulsar stations a armor bonus
 on_game_start = {
 	events = {
 		stellarfixed.1

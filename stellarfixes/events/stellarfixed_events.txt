@@ -1,5 +1,6 @@
 namespace = stellarfixed
 
+### event giving every pulsar a modifier used for trigger
 event = {
 	id = stellarfixed.1
 	hide_window = yes
