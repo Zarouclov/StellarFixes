@@ -16,9 +16,7 @@ event = {
 	immediate = {
 		every_system = {
 			limit = {
-				solar_system = {
-					has_modifier = pulsar_sys
-				}
+				has_modifier = pulsar_sys
 				exists = starbase
 			}
 			every_ship_in_system = {
