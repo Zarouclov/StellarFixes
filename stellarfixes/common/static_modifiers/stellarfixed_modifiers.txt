@@ -1,6 +1,10 @@
 ### static_modifiers used to fix pulsar stations
-pulsar_mod = {
-	ship_armor_mult = 1
+pulsar_mod_init = {
+	ship_armor_mult = 0.40
+}
+
+pulsar_mod_add = {
+	ship_armor_mult = 0.25
 }
 
 pulsar_sys = {

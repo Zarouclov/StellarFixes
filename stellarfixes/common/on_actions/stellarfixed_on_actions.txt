@@ -10,3 +10,21 @@ on_monthly_pulse = {
 		stellarfixed.2
 	}
 }
+
+on_ship_upgraded = {
+# A ship has been upgraded
+# Root = Ship
+	events = {
+		stellarfixed.3
+	}
+}
+
+
+on_system_lost = {
+# From = system
+# FromFrom = country (new owner)
+# This = country (previous owner)
+	events = {
+		stellarfixed.4
+	}
+}

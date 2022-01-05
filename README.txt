@@ -4,9 +4,9 @@ Feel free to ask for changes and new features, but please give an explanation fo
 
 This mod does a few things:
 
--gives +100% armor to starbases in pulsar systems.
+-gives scaling armor to starbases in pulsar systems.
 	I had enough seeing the starbases under -100% shield try to add more shield instead of armor.
-	For games created after getting this modn everything is automatic, but for already ongoing games you will need to execute the command "event stellarfixed.1" (by default press ² to open the command prompt).
+	For games created after getting this mod everything is automatic, but for already ongoing games you will need to execute the command "event stellarfixed.1" (by default press ² to open the command prompt).
 
 -allows for almost every empire to:
 	-use the armageddon orbital bombardment, because more freedom for the player to roleplay himself why he would do that.	

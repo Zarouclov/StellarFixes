@@ -1,6 +1,7 @@
 ﻿l_english:
 
-pulsar_mod: "pulsar modifier for starbases - StellarFixes"
+pulsar_mod_init: "pulsar modifier for starbases - StellarFixes"
+pulsar_mod_add: "pulsar modifier for starbases - StellarFixes"
 pulsar_sys: "indicator to mark not yet modified pulsar"
 
 cannot_enslave: "Our Empire does not support the enslavement of other sentient species."

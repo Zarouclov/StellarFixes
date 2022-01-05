@@ -1,6 +1,6 @@
 namespace = stellarfixed
 
-### event giving every pulsar a modifier used for trigger
+### event giving every pulsar a modifier used for trigger and gives already existing starbases a matching bonus
 event = {
 	id = stellarfixed.1
 	hide_window = yes
@@ -12,15 +12,80 @@ event = {
 					is_star_class = sc_binary_1
 					is_star_class = sc_pulsar
 				}
+				NOT = {has_modifier = pulsar_sys }
 			}
 			add_modifier = {
 				modifier = pulsar_sys
 			}
-		}
+
+			### if starbase already exist
+			if = {
+				limit = {
+					exists = starbase
+				}
+				remove_modifier = pulsar_sys
+				every_ship_in_system = {
+					limit = {
+						is_ship_class = shipclass_starbase
+						NOT = {has_modifier = pulsar_mod_init }
+					}
+					if = {
+						limit = {
+							is_ship_size = starbase_outpost
+						}
+						add_modifier = {
+							modifier = pulsar_mod_init
+						}
+					}
+					else_if = {
+						limit = {
+							is_ship_size = starbase_starport
+						}
+						add_modifier = {
+							modifier = pulsar_mod_init
+							modifier = pulsar_mod_add
+						}
+					}
+					else_if = {
+						limit = { 
+							is_ship_size = starbase_starhold
+						}
+						add_modifier = {
+							modifier = pulsar_mod_init
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+						}
+					}
+					else_if = {
+						limit = { 
+							is_ship_size = starbase_starfortress
+						}
+						add_modifier = {
+							modifier = pulsar_mod_init
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+						}
+					}
+					else_if = {
+						limit = {
+							is_ship_size = starbase_citadel
+						}
+						add_modifier = {
+							modifier = pulsar_mod_init
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+							modifier = pulsar_mod_add
+						}
+					}
+				}
+			}
+		}		
 	}
 }
 
-### event checking for any station owned in a pulsar system and giving their station an armor modifier
+### event checking for any station created in a pulsar system and giving their station an armor modifier
 event = {
 	id = stellarfixed.2
 	hide_window = yes
@@ -46,9 +111,68 @@ event = {
 					is_ship_class = shipclass_starbase
 				}
 				add_modifier = {
-					modifier = pulsar_mod
+					modifier = pulsar_mod_init
 				}
-				
+			}
+		}
+	}
+}
+
+### event adjusting the modifier when upgrading a station
+event =	{
+	id = stellarfixed.3
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ship_class = shipclass_starbase
+		solar_system = {
+			OR = {
+				is_star_class = sc_binary_1
+				is_star_class = sc_pulsar
+			}
+		}
+	}
+	immediate = {
+		add_modifier = {
+			modifier = pulsar_mod_add
+		}
+	}
+}
+
+### event resetting the system if the station is dismantled
+country_event =	{
+	id = stellarfixed.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+				OR={
+					AND = {
+						OR = {
+							is_star_class = sc_binary_1
+							is_star_class = sc_pulsar
+						}
+						NOT = {exists = starbase }
+					}
+					AND = {
+						exists = starbase
+						OR = {
+							is_star_class = sc_binary_1
+							is_star_class = sc_pulsar
+						}
+						any_ship_in_system = {
+							is_ship_class = shipclass_starbase
+							NOT= {has_modifier = pulsar_mod_init }
+						}
+					}
+				}
+			}
+	}
+	immediate = {
+		FROM = {
+			add_modifier = {
+				modifier = pulsar_sys
 			}
 		}
 	}
