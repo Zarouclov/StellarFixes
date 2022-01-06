@@ -45,6 +45,7 @@ event = {
 							modifier = pulsar_mod_init
 							modifier = pulsar_mod_add
 						}
+						set_ship_flag = "port"
 					}
 					else_if = {
 						limit = { 
@@ -55,6 +56,8 @@ event = {
 							modifier = pulsar_mod_add
 							modifier = pulsar_mod_add
 						}
+						set_ship_flag = "port"
+						set_ship_flag = "hold"
 					}
 					else_if = {
 						limit = { 
@@ -66,6 +69,9 @@ event = {
 							modifier = pulsar_mod_add
 							modifier = pulsar_mod_add
 						}
+						set_ship_flag = "port"
+						set_ship_flag = "hold"
+						set_ship_flag = "fort"
 					}
 					else_if = {
 						limit = {
@@ -78,6 +84,10 @@ event = {
 							modifier = pulsar_mod_add
 							modifier = pulsar_mod_add
 						}
+						set_ship_flag = "port"
+						set_ship_flag = "hold"
+						set_ship_flag = "fort"
+						set_ship_flag = "citadel"
 					}
 				}
 			}
@@ -131,10 +141,47 @@ event =	{
 				is_star_class = sc_pulsar
 			}
 		}
+		NOT = { has_ship_flag = "citadel" }
 	}
 	immediate = {
-		add_modifier = {
-			modifier = pulsar_mod_add
+		if = {
+			limit = { 
+				NOT = { has_ship_flag = "port" } 
+				is_ship_size = starbase_starport
+			}
+			add_modifier = {
+				modifier = pulsar_mod_add
+			}
+			set_ship_flag = "port"
+		}
+		else_if = {
+			limit = { 
+				NOT = { has_ship_flag = "hold" } 
+				is_ship_size = starbase_starhold
+			}
+			add_modifier = {
+				modifier = pulsar_mod_add
+			}
+			set_ship_flag = "hold"
+		}
+		else_if = {
+			limit = { 
+				NOT = { has_ship_flag = "fort" } 
+				is_ship_size = starbase_starfortress
+			}
+			add_modifier = {
+				modifier = pulsar_mod_add
+			}
+			set_ship_flag = "fort"
+		}
+		else_if = {
+			limit = {
+				is_ship_size = starbase_citadel
+			}
+			add_modifier = {
+				modifier = pulsar_mod_add
+			}
+			set_ship_flag = "citadel"
 		}
 	}
 }
@@ -173,6 +220,74 @@ country_event =	{
 		FROM = {
 			add_modifier = {
 				modifier = pulsar_sys
+			}
+		}
+	}
+}
+
+### reset
+event = {
+	id = stellarfixed.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_playable_country = {
+			any_owned_starbase = {
+				solar_system = {
+					OR = {
+						is_star_class = sc_binary_1
+						is_star_class = sc_pulsar
+					}
+					any_ship_in_system = {
+						has_ship_flag = "port"
+						is_ship_size = starbase_outpost
+					}
+				}
+			}
+		}
+	}
+	immediate = {
+		every_system = {
+			limit = {
+				exists = starbase
+				OR = {
+					is_star_class = sc_binary_1
+					is_star_class = sc_pulsar
+				}
+				any_ship_in_system = {
+					has_ship_flag = "port"
+					is_ship_size = starbase_outpost
+				}
+			}
+			every_ship_in_system = {
+				limit = {
+					is_ship_class = shipclass_starbase
+				}
+				remove_ship_flag = "port"
+				remove_modifier = pulsar_mod_add
+				
+				if = {
+					limit = {
+						has_ship_flag = "hold"
+					}
+					remove_ship_flag = "hold"
+					remove_modifier = pulsar_mod_add
+				}
+				if = {
+					limit = {
+						has_ship_flag = "fort"
+					}
+					remove_ship_flag = "fort"
+					remove_modifier = pulsar_mod_add
+				}
+				if = {
+					limit = {
+						has_ship_flag = "citadel"
+					}
+					remove_ship_flag = "citadel"
+					remove_modifier = pulsar_mod_add
+				}
 			}
 		}
 	}

@@ -8,6 +8,7 @@ on_game_start = {
 on_monthly_pulse = {
 	events = {
 		stellarfixed.2
+		stellarfixed.5
 	}
 }
 
@@ -18,7 +19,6 @@ on_ship_upgraded = {
 		stellarfixed.3
 	}
 }
-
 
 on_system_lost = {
 # From = system

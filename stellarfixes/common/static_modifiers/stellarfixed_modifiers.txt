@@ -4,7 +4,7 @@ pulsar_mod_init = {
 }
 
 pulsar_mod_add = {
-	ship_armor_mult = 0.25
+	ship_armor_mult = 0.20
 }
 
 pulsar_sys = {
