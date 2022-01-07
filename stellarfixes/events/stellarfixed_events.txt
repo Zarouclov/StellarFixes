@@ -43,6 +43,8 @@ event = {
 						}
 						add_modifier = {
 							modifier = pulsar_mod_init
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
 						}
 						set_ship_flag = "port"
@@ -53,7 +55,11 @@ event = {
 						}
 						add_modifier = {
 							modifier = pulsar_mod_init
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
 						}
 						set_ship_flag = "port"
@@ -65,8 +71,14 @@ event = {
 						}
 						add_modifier = {
 							modifier = pulsar_mod_init
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
 						}
 						set_ship_flag = "port"
@@ -79,9 +91,17 @@ event = {
 						}
 						add_modifier = {
 							modifier = pulsar_mod_init
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
+						}
+						add_modifier = {
 							modifier = pulsar_mod_add
 						}
 						set_ship_flag = "port"
@@ -292,3 +312,21 @@ event = {
 		}
 	}
 }
+
+### kill ALL in system when star killer is used cuz idk why some crisis event ships would survive the novae
+planet_event = {
+	id = stellarfixed.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		solar_system = {
+			every_fleet_in_system = {
+				limit = {
+					NOT = { is_ship_size = star_eater }
+				}
+				destroy_fleet = THIS
+			}
+		}
+	}
+} 

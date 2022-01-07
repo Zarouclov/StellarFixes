@@ -15,3 +15,5 @@ This mod does a few things:
 		(except xenophiles, egalitarians and fanatic pacifists)
 	-purge, same reasons.
 		(except for pacifists and fanatic xenophiles)
+
+-fix the bug that allows the unbidden to survive a SUPERNOVAE cuz why not

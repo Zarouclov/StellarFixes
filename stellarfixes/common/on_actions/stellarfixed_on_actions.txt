@@ -28,3 +28,11 @@ on_system_lost = {
 		stellarfixed.4
 	}
 }
+
+
+### kills everything in destroyed system
+on_destroy_planet_with_PLANET_KILLER_STAR_CRACKER = {
+	events = {
+		stellarfixed.6
+	}
+}
